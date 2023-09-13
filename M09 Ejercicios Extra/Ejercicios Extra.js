@@ -58,58 +58,63 @@ function asAmirror(frase) {
    // La diferencia es que cada palabra estará escrita al inverso.
    // [EJEMPLO]: "The Henry Challenge is close!"  ---> "ehT yrneH egnellahC si !esolc"
    // Tu código:
-   var init = 0;
-   var word = '';
-   var mirrorFrase = '';
-   for (var i = 0; i < frase.length; i++){
-      if(frase[i] === ' '){
-         word = frase.slice(init, i);
-         mirrorFrase += word.split('').reverse().join('') + ' ';
-         init = i+1;
-      } else if (i == frase.length-1){
-         word = frase.slice(init, i+1);
-         mirrorFrase += word.split('').reverse().join('');
-         init = i+1;
-      }
+
+   let nuevaFrase = frase.split(' ')
+   let fraseFinal = []
+   for (let palabra of nuevaFrase) {
+      let palabraAlreves = palabra.split('').reverse().join('')
+      fraseFinal.push(palabraAlreves)
    }
-   return mirrorFrase;
+
+
+   return fraseFinal.join(' ')
 }
+console.log(asAmirror('I love you so much!'))
+console.log(asAmirror('The Henry Challenge is close!'))
 
 function capicua(numero) {
    // Si el número que recibes es capicúa debes retornar el string: "Es capicua".
    // Caso contrario: "No es capicua".
    // Tu código:
-   var strNum = numero.toString();
-   var strNumInverse = strNum.split('').reverse().join('');
-   if (strNum == strNumInverse){
-      return 'Es capicua';
+   
+   let num = numero+''
+
+   let nuevoNumero = num.split('').reverse().join('')
+
+   if( num === nuevoNumero ){
+      return "Es capicua"
    } else {
-      return 'No es capicua';
+      return "No es capicua"
    }
+
+   
 }
+console.log(capicua(36963));
+console.log(capicua(363));
+
 
 function deleteAbc(string) {
    // Tu tarea es eliminar las letras "a", "b" y "c" del string recibido.
    // Retorna el string sin estas letras.
    // Tu código:
-   //var str = '';
    
-   //for(var i = 0; i < string.length; i++){
-   //   var letra = string.charAt(i);
-   //   if (letra !== 'a' && letra !== 'b' && letra !== 'c'){
-   //      str += letra;
-   //   }
-   //}
+   let str = string.split('')
+   let newString = []
 
-   //var str2 = string.split('').map((letra) =>{
-   //   if(letra !== 'a' && letra !== 'b' && letra !== 'c'){
-   //      return letra;
-   //   }
-   //})
-   //return str2.join('');
+   for (let letra of str) {
+      
+      if( letra !== 'a' && letra !== 'b' && letra !== 'c' ){
 
-   return string.replace(/[abc]/g, '');
+         newString.push(letra)
+      }
+
+   }
+
+
+   return newString.join('')
 }
+console.log(deleteAbc('hola, soy un texto, abc'));
+
 
 function sortArray(arrayOfStrings) {
    // Recibes un arreglo de strings.

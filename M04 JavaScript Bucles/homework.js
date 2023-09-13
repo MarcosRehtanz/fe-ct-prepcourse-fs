@@ -152,30 +152,65 @@ function esPrimo(num) {
    // [Nota]: los números negativos, 0 y 1 NO son números primos.
    // Tu código:
 
-   if(num <= 1){
+   if( num <= 1 ){
       return false;
+
+   } else if ( num == 2){
+      return true
    }
 
-   for (let i = 2; i < num; i++) {
-      if( num % i == 0){
-         return false;
+   let primo = true
+
+   for (let i = 2; i < num ; i++) {
+      
+      if ( num % i === 0 ){
+         primo = false
       }
+
    }
-   return true;
+
+   return primo
+
 }
 
 function esVerdadero(valor) {
    // Si "valor" es verdadero retornar "Soy verdadero".
    // Caso contrario, retornar "Soy falso".
    // Tu código:
-   return valor ? 'Soy verdadero' : 'Soy falso';
+
+   //? valor = true
+   if ( valor ){
+      return 'Soy verdadero'
+   } else {
+      return 'Soy falso'
+   }
+
+
 }
 
 function tieneTresDigitos(num) {
    // Si el número recibido tiene tres dígitos retornar true.
    // Caso contrario, retornar false.
    // Tu código:
-   return num >= 100 && num < 1000;
+
+   //!   693
+   //*  '693'.length =>  3
+
+
+   let digitos = num + '' //* parseo de num a un string
+
+   if( digitos.length === 3 ){
+      return true;
+   } else {
+      return false;
+   }
+
+   if( num > 99 && num < 1000 ){
+      return true;
+   } else {
+      return false;
+   }
+
 }
 
 function doWhile(num) {
@@ -183,12 +218,18 @@ function doWhile(num) {
    // Retornar el valor final.
    // Utilizar el bucle Do-While.
    // Tu código:
-   var i = 0
+
+   let count = 0
+
    do {
-      num += 5;
-      i++;
-   } while (i<8);
-   return num;
+      
+      num += 5 //* num = num + 5
+      count++;
+
+   } while ( count < 8 );
+
+   return num
+
 }
 
 /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/
